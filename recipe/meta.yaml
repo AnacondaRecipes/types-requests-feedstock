@@ -10,16 +10,16 @@ source:
 
 build:
   number: 0
-  noarch: python
+  skip: True # [py<37]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - wheel
   run:
-    - python >=3.6
+    - python
     - types-urllib3 <1.27
 
 test:
