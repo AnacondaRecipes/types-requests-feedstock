@@ -24,6 +24,8 @@ requirements:
     - types-urllib3 <1.27
 
 test:
+  imports:
+    - types
   requires:
     - pip
   commands:
