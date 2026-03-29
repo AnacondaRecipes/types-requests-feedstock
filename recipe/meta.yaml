@@ -1,27 +1,27 @@
-{% set version = "2.30.0.0" %}
+{% set version = "2.32.4.20250809" %}
 
 package:
   name: types-requests
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/t/types-requests/types-requests-{{ version }}.tar.gz
-  sha256: dec781054324a70ba64430ae9e62e7e9c8e4618c185a5cb3f87a6738251b5a31
+  url: https://pypi.org/packages/source/t/types-requests/types_requests-{{ version }}.tar.gz
+  sha256: d8060de1c8ee599311f56ff58010fb4902f462a1470802cf9f6ed27bc46c4df3
 
 build:
   number: 0
-  skip: true  # [py<36]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
-    - wheel
+    - setuptools >=77.0.3
   run:
     - python
     - types-urllib3 <1.27
+    - urllib3 >=2
 
 test:
   imports:
@@ -39,9 +39,9 @@ about:
   license_file: LICENSE
   license_family: OTHER
   description: |
-    This is a PEP 561 type stub package for the requests package. 
-    It can be used by type-checking tools like mypy, pyright, pytype, 
-    PyCharm, etc. to check code that uses requests. 
+    This is a PEP 561 type stub package for the requests package.
+    It can be used by type-checking tools like mypy, pyright, pytype,
+    PyCharm, etc. to check code that uses requests.
   dev_url: https://github.com/python/typeshed
   doc_url: https://requests.readthedocs.io
 
